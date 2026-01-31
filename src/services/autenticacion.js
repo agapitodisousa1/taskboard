@@ -89,7 +89,7 @@ export const enviarEmailVerificacion = async (usuarioActual = null) => {
 }
 // sirve para proteger la ruta
 export const estaAutenticado = ()=> {
-    return usuario.value !== null 
+    return usuario.value !== null
 }
 
 // Obrtener usuario, si el existe

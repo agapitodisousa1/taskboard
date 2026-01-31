@@ -1,23 +1,29 @@
 <template>
-    <section class="flex justify-center">
-        <h1>REGISTRAR</h1>
-        <form @submit.prevent="registrarUsuario">
-            <div>
-                <label for="email">Email: </label>
-                <input required type="email" name="email" placeholder="Introduce tu email" v-model="email">
+    <section class="flex  justify-center bg-[#f8f9fa] flex-col items-center gap-5 p-5 h-screen">
+        <div class="bg-[#ced4da] w-[30%] rounded flex justify-center p-5">
+            <strong><h1 class="text-2xl">REGISTRAR</h1></strong>
+        </div>
+        <form @submit.prevent="registrarUsuario" class="flex gap-10 p-5 flex-col border-1 rounded w-[30%]">
+            <div class="">
+                <label for="email">Email:   </label>
+                <input class="outline-none p-1 rounded" required type="email" id="email" placeholder="Introduce tu email" v-model="email">
             </div>
             <div>
-                <label for="pass">Contraseña: </label>
-                <input required type="password" name="pass" placeholder="Introduce la contraseña" v-model="password">
+                <label for="pass">Contraseña:    </label>
+                <input class="outline-none p-1 rounded" required type="password" id="pass" placeholder="Introduce la contraseña" v-model="password">
             </div>
-            <div>
-                <label for="confirmpass">Confirmar contraseña</label>
-                <input required type="password" v-model="confirmPassword" name="confirmpass" placeholder="Vuelve a introducir la contraseña">
+            <div class="">
+                <label for="confirmpass">Confirmar contraseña:    </label>
+                <input class="outline-none" required type="password" v-model="confirmPassword" id="confirmpass" placeholder="Vuelve a introducir la contraseña">
             </div>
             <p v-if="error">{{ error }}</p>
             <p v-if="exito">{{ exito }}</p>
-            <button type="submit" :disabled="cargando">{{ cargando ? "Creando usuario..." : "Registrar usuario"}}</button>
+            <div class="flex justify-center items-center gap-5">
+                
+                <button type="submit" class="p-2 bg-[#343a40] rounded cursor-pointer text-[#ffffff]" :disabled="cargando">{{ cargando ? "Creando usuario..." : "Registrar usuario"}}</button>
+            </div>
         </form>
+        <button @click="goLogin" class="shadow p-2 rounded cursor-pointer">¿Ya tienes cuenta?</button>
     </section>
 </template>
 
@@ -37,6 +43,9 @@
             return password.value === confirmPassword.value
         }
     )
+    let goLogin = () => {
+        router.push("/login")
+    }
     let registrarUsuario = async () =>{
         error.value = ""
         exito.value = ""
