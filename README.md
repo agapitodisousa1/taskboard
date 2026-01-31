@@ -3,3 +3,6 @@ Este proyecto es una aplicacion donde los usuarios pueden ver una lista de tarea
 Para ejecutar en local hay que hacer npm install, npm run format y npm run dev. Antes del run dev hay que instalar firebase, tailwind, axios.
 La base de datos está organizada en una colección users. Cada documento representa a un usuario de la aplicación y se identifica con su uid. Dentro del documento está el campo llamado tasks, que es una lista de tareas. Cada tarea tiene el id de la tarea, el texto de la tarea y si la tarea está finalizada o no.
 
+enlace a vercel: taskboard-opal.vercel.app
+
+
