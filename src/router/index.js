@@ -21,7 +21,6 @@ onAuthStateChanged(auth, () =>{
   router.beforeEach((to, from, next) => {
   if(to.meta.requiresAuth){
     if(estaAutenticado()){
-      
       next()
     }else{
       next("/login")}

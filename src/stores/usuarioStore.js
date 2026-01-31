@@ -21,7 +21,14 @@ export const useUsuarioStore = defineStore("usuario", () => {
           return
         }
 
-        usuario.value = await crearUsuarioSiNoExiste(user)
+        const data = await crearUsuarioSiNoExiste(user)
+
+        usuario.value = {
+          uid: data.uid,
+          email: data.email,
+          tasks: data.tasks ? data.tasks : []
+        }
+
       } catch (err) {
         console.log(err)
         usuario.value = null
